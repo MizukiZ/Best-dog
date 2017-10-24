@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+
+<div class="container">
+  <div class="row justify-content-space">
+    <% @breeds.each do |breed| %>
+
+    <div class="col-4 text-center font-weight-bold">
+      <%= link_to breed_path(breed) do %>
+      <%= image_tag breed.image %>
+      <% end %><br>
+      <%= breed.name %>
+    </div>
+      <% end %>
+  </div>
+</div>
+
+
+<br>
+
+<%= link_to 'New Breed', new_breed_path %>

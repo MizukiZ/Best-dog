@@ -23,7 +23,8 @@ gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 
 gem 'carrierwave', '~> 1.0'
-
+gem 'fog'
+gem 'rmagick'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 
 gem 'dotenv-rails', groups: [:development, :test]

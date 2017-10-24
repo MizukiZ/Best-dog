@@ -1,0 +1,40 @@
+<div class="container">
+  <%= form_with(model: [@breed,feed_back], local: true) do |form| %>
+  <div class="row">
+    <% if feed_back.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feed_back.errors.count, "error") %> prohibited this feed_back from being saved:</h2>
+
+      <ul>
+        <% feed_back.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+<hr>
+  <div class="row justify-content-center">
+    <div class="col-4 text-center">
+      <%= form.label :rate, 'Rate(0 to 5)' %><br>
+      <%= form.number_field :rate, id: :feed_back_rate, in: 0..5 %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-7 text-center">
+      <%= form.label :comment %><br>
+      <%= form.text_area :comment, id: :feed_back_comment %>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-5 text-center">
+      <%= form.button 'Review', class: 'btn btn-info' %>
+    </div>
+  </div>
+
+
+
+  <% end %>
+</div>

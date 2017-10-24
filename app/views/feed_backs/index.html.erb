@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Feed Backs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rate</th>
+      <th>Comment</th>
+      <th>User</th>
+      <th>Breed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @feed_backs.each do |feed_back| %>
+      <tr>
+        <td><%= feed_back.rate %></td>
+        <td><%= feed_back.comment %></td>
+        <td><%= feed_back.user %></td>
+        <td><%= feed_back.breed %></td>
+        <td><%= link_to 'Show', feed_back %></td>
+        <td><%= link_to 'Edit', edit_feed_back_path(feed_back) %></td>
+        <td><%= link_to 'Destroy', feed_back, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Feed Back', new_feed_back_path %>

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<div class="container">
+  <div class="row">
+    <%= star_fomat(@average_rate) %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <%= image_tag @breed.image %>
+    </div>
+    <div class="col-6">
+      <p class="font-weight-bold"><%= @breed.name %></p>
+      <%= @breed.description %>
+    </div>
+  </div>
+  <div class="row justify-content-center font-weight-bold text-info title-text">
+    <div class="col-6 text-center">
+      Reviews
+    </div>
+  </div>
+  <hr>
+  <% @breed.feed_backs.each do |feed_back| %>
+  <div class="row">
+    <div class="col-2 align-self-center font-weight-bold">
+      <%= feed_back.user.user_name %>
+    </div>
+    <div class="col-9">
+      <%= star_fomat(feed_back.rate) %><br>
+      <%= feed_back.comment %>
+    </div>
+  </div>
+  <hr>
+  <% end %>
+
+  <div class="row justify-content-center">
+    <div class="col-4 text-center">
+      <%= link_to "Leave your review", new_breed_feed_back_path(@breed), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>

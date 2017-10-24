@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <%# star_fomat(@average_rate) %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-5">
+      <%= image_tag @breed.image %>
+    </div>
+    <div class="col-6">
+      <p class="font-weight-bold"><%= @breed.name %></p>
+      <%= @breed.description %>
+    </div>
+  </div>
+  <div class="row justify-content-center font-weight-bold text-info title-text">
+    <div class="col-6 text-center">
+
+    </div>
+  </div>
+
+ <%= render 'form', feed_back: @feed_back %>
