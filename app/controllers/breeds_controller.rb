@@ -4,13 +4,36 @@ class BreedsController < ApplicationController
   # GET /breeds
   # GET /breeds.json
   def index
-    @breeds = Breed.all
+
+
+    if params[:query]
+      @view_btn = true
+      query = params[:query]
+      @breeds = Breed.where("name iLIKE ?", "%#{query}%")
+    else
+      @view_btn = false
+      @breeds = Breed.all.order(:name)
+    end
+
   end
 
   # GET /breeds/1
   # GET /breeds/1.json
   def show
-    @average_rate = FeedBack.where(breed_id: @breed.id).average(:rate).to_i
+    @feed_backs = @breed.feed_backs
+    @average_rate = FeedBack.where(breed_id: @breed.id).average(:rate)
+
+    if params[:view] == "all"
+      @feed_backs = @breed.feed_backs.order(created_at: :desc)
+    elsif params[:view] == "three"
+      @feed_backs = @breed.feed_backs.order(created_at: :desc).limit(3)
+    else
+      if @feed_backs.count > 3
+        @feed_backs = @breed.feed_backs.order(created_at: :desc).limit(3)
+      else
+        @feed_backs = @breed.feed_backs.order(created_at: :desc)
+      end
+    end
   end
 
   # GET /breeds/new
@@ -63,13 +86,13 @@ class BreedsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_breed
-      @breed = Breed.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_breed
+    @breed = Breed.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def breed_params
-      params.require(:breed).permit(:name, :image, :description)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def breed_params
+    params.require(:breed).permit(:name, :image, :description)
+  end
 end

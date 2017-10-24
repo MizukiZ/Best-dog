@@ -59,7 +59,7 @@ class FeedBacksController < ApplicationController
   def destroy
     @feed_back.destroy
     respond_to do |format|
-      format.html { redirect_to feed_backs_url, notice: 'Feed back was successfully destroyed.' }
+      format.html { redirect_to @breed, notice: 'Feed back was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

@@ -2,20 +2,32 @@
 
 
 <div class="container">
-  <div class="row justify-content-space">
+  <div class="row justify-content-start text-right margin-items">
+
+  <div class="col-2">
+    <% if @view_btn == true %>
+    <%= link_to 'All breeds', breeds_path, class:'btn btn-primary' %>
+    <% end %>
+  </div>
+
+    <div class="col-4 offset-6">
+      <%= form_with url: breeds_path, method: :get, local:true, class: 'row justify-content-end' do |f| %>
+      <div class="row">
+        <%= f.text_field :query %>
+        <%= f.button 'search' %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row justify-content-around">
     <% @breeds.each do |breed| %>
 
-    <div class="col-4 text-center font-weight-bold">
+    <div class="col-3 text-center font-weight-bold border margin-items ">
       <%= link_to breed_path(breed) do %>
-      <%= image_tag breed.image %>
+      <%= image_tag breed.image, size: '200x200' %>
       <% end %><br>
       <%= breed.name %>
     </div>
-      <% end %>
+    <% end %>
   </div>
 </div>
-
-
-<br>
-
-<%= link_to 'New Breed', new_breed_path %>
