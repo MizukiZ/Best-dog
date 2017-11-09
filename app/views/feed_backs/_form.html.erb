@@ -21,10 +21,9 @@
     </div>
   </div>
 
-  <div class="row justify-content-center">
+  <div class="row justify-content-center margin-items">
     <div class="col-7 text-center">
-      <%= form.label :comment %><br>
-      <%= form.text_area :comment, id: :feed_back_comment %>
+      <%= form.text_area :comment, id: :feed_back_comment, class: "form-control", rows: 6, placeholder: 'your comment here' %>
     </div>
   </div>
 

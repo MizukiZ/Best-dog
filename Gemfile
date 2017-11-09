@@ -21,7 +21,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
-
+gem "font-awesome-rails"
 gem 'carrierwave', '~> 1.0'
 gem 'fog'
 gem 'rmagick'

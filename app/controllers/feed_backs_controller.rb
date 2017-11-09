@@ -1,7 +1,9 @@
 class FeedBacksController < ApplicationController
   before_action :set_feed_back, only: [:show, :edit, :update, :destroy]
   before_action :set_breed
+  before_action :authenticate_user!
 
+  
   # GET /feed_backs
   # GET /feed_backs.json
   def index

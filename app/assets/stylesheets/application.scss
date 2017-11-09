@@ -1,4 +1,6 @@
 @import "bootstrap";
+@import "font-awesome";
+
 
 html{
   width: 100%;
@@ -30,5 +32,13 @@ body{
 }
 
 .land{
-  height :280px;
+  height :180px;
+}
+
+.header-color{
+  background: rgb(197, 226, 218);
+}
+
+.header-bottom{
+  margin-bottom: 30px;
 }

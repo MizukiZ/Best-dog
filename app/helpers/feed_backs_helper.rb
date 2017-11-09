@@ -1,6 +1,6 @@
 module FeedBacksHelper
 
-  def star_fomat(rate)
+  def star_format(rate)
     star_arr = []
     rate.times do
     star_arr << "⭐️"

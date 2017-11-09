@@ -1,14 +1,13 @@
-<p id="notice"><%= notice %></p>
-
 <div class="container">
-
   <div class="row ">
     <div class="col-2 offset-1 text-center">
       <%= pluralize(@feed_backs.count, 'review') %>
     </div>
+    <% if @feed_backs.present? %>
     <div class="col-2 margin-bottom">
-      <%= star_fomat(@average_rate.to_i) %><%= @average_rate.to_f %>
+      <%= star_format(@average_rate.to_i) %><%= @average_rate.to_f %>
     </div>
+    <% end %>
   </div>
 
   <div class="row justify-content-center">
@@ -39,7 +38,7 @@
       <%= feed_back.user.user_name %>
     </div>
     <div class="col-9">
-      <%= star_fomat(feed_back.rate) %> | <%= feed_back.time_fomat %><br>
+      <%= star_format(feed_back.rate) %> | <%= feed_back.time_fomat %><br>
       <%= feed_back.comment %>
     </div>
     <% if current_user == feed_back.user %>
